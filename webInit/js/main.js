@@ -4,13 +4,18 @@
 // Require.js allows us to configure shortcut alias
 // Their usage will become more apparent futher along in the tutorial.
 require.config({
-  paths: {
-    jquery: 'libs/jquery/jquery-min',
-    underscore: 'libs/underscore/underscore-min',
-    backbone: 'libs/backbone/backbone-min',
-    templates: '../templates'
-  }
-
+    paths: {
+        jquery: 'libs/jquery.min',
+        underscore: 'libs/lodash.min',
+        backbone: 'libs/backbone-min',
+        handlebars: 'libs/handlebars-v1.3.0',
+        templates: '../templates'
+    },
+   shim: {
+           'handlebars': {
+               exports: 'Handlebars'
+           }
+       }
 });
 
 require([
