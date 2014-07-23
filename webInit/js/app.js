@@ -16,7 +16,7 @@ define([
             template;
 
         $.ajax({
-            url: 'templates/' + path,
+            url: 'templates/' + path + '.handlebars',
                 success: function(data) {
                     source    = data;
                     template  = Handlebars.compile(source);

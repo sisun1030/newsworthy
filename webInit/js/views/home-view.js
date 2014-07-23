@@ -2,34 +2,24 @@
 define([
         'jquery',
         'underscore',
-        'backbone',
+        'views/base-view',
         'handlebars'
     ], function(
         $,
         _,
-        Backbone,
+        BaseView,
         Handlebars
     ){
-    var HomeView = Backbone.View.extend({
+    var HomeView = BaseView.extend({
     menu: $('#menu'),
     //template: Handlebars.template('<div>hello world</div>'),
 
-    initialize: function(options)
-    {
-        options = options || {};
-    },
-    render: function(){
-        // Using Underscore we can compile our template with data
-        var data = {},
-             self = this;
-        //var template = template( );
-
-        //var menuBar = this.template();
-        // Append our compiled template to this Views "el"
-        Handlebars.helpers.getTemplateAjax('menu.handlebars', function(source) {
-            self.menu.append(source);
-        });
-       // this.menu.append( menuBar );
+        initialize: function(options)
+        {
+            options = options || {};
+        },
+        render: function() {
+            this.renderTemplate('menu', '#menu');
         }
     }, {
 

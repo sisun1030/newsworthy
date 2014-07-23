@@ -13,6 +13,7 @@ define([
         routes: {
             // Define some URL routes
             'home': 'home',
+            '': 'home',
             '/projects': 'showProjects',
             '/users': 'showUsers',
 
