@@ -2,32 +2,31 @@
 define([
         'jquery',
         'underscore',
+        'models/menu-model',
         'views/base-view',
-        'views/menu-view',
         'handlebars'
     ], function(
         $,
         _,
+        MenuModel,
         BaseView,
-        MenuView,
         Handlebars
     ){
-    var HomeView = BaseView.extend({
-    menu: $('#menu'),
-    //template: Handlebars.template('<div>hello world</div>'),
+    var MenuView = BaseView.extend({
+        menu: $('#menu'),
 
         initialize: function(options)
         {
             options = options || {};
-            this.menuView = new MenuView();
+            this.menuModel = new MenuModel();
+            this.menuModel.currentRoute = Backbone.history.getHash();
         },
         render: function() {
-           // this.renderTemplate('menu', '#menu');
-           this.menuView.render();
+            this.renderTemplate('menu', '#menu', this.menuModel);
         }
     }, {
 
     });
     // Our module now returns our view
-    return HomeView;
+    return MenuView;
 });

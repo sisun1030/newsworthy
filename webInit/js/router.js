@@ -16,6 +16,8 @@ define([
             // Define some URL routes
             'home': 'home',
             '': 'home',
+            'members': 'members',
+            'notifications': 'notifications',
             'settings': 'settings',
             '/projects': 'showProjects',
             '/users': 'showUsers',
@@ -27,6 +29,18 @@ define([
         var app_router = new AppRouter;
 
         app_router.on('route:home', function(){
+
+            var homeView = new HomeView();
+            homeView.render();
+
+        });
+        app_router.on('route:members', function(){
+
+            var homeView = new HomeView();
+            homeView.render();
+
+        });
+        app_router.on('route:notifications', function(){
 
             var homeView = new HomeView();
             homeView.render();

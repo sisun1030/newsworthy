@@ -12,12 +12,13 @@ define([
     ){
     var BaseView = Backbone.View.extend({
     //template: Handlebars.template('<div>hello world</div>'),
-        renderTemplate: function(source, selector)
+        renderTemplate: function(source, selector, data)
         {
             var elem = $(selector),
                  self = this;
+            data = data || {};
             Handlebars.helpers.getTemplateAjax(source, function(renderedElem) {
-                elem.append(renderedElem);
+                elem.append(renderedElem(data));
             });
         }
 
